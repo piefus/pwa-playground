@@ -1,7 +1,7 @@
 // self.importScripts('data/games.js');
 
 // Files to cache
-const cacheName = "pwaPlayground-v1";
+const cacheName = "pwaPlayground-v2";
 const appShellFiles = ["/pwa-playground/index.html", "/pwa-playground/main.js", "/pwa-playground/style.css"];
 // const gamesImages = [];
 // for (let i = 0; i < games.length; i++) {
