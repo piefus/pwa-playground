@@ -1,7 +1,7 @@
 // Per aggiornare il sw ricordati di cambiare la versione del cacheName
 
 // Files to cache
-const cacheName = ["pwaPlayground-v12"];
+const cacheName = ["pwaPlayground-v13"];
 const appShellFiles = ["index.html", "assets/main.js", "assets/style.css"];
 // const gamesImages = [];
 // for (let i = 0; i < games.length; i++) {
