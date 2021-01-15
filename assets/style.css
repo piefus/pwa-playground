@@ -1,3 +1,8 @@
+/*
+Per aggiornare il css ricordati di cambiare la versione del cacheName nel sw.js 
+N.B. l'aggiornamento del service worker funziona solo chiudendo tutte le tab e riaprendole. Non con il refresh
+*/
+
 h1 {
     color: greenyellow;
 }
