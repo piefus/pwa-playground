@@ -1,4 +1,5 @@
 // Per aggiornare il sw ricordati di cambiare la versione del cacheName
+// Potrebbe servire anche per eliminare le risorse in cache
 
 // Files to cache
 const cacheName = ["pwaPlayground-v13"];
