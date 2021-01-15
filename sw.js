@@ -2,7 +2,7 @@
 
 // Files to cache
 const cacheName = "pwaPlayground-v1";
-const appShellFiles = ["/", "/index.html", "/main.js", "/style.css"];
+const appShellFiles = ["/index.html", "/main.js", "/style.css"];
 // const gamesImages = [];
 // for (let i = 0; i < games.length; i++) {
 //   gamesImages.push(`data/img/${games[i].slug}.jpg`);
