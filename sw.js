@@ -2,7 +2,7 @@
 
 // Files to cache
 const cacheName = "pwaPlayground-v2";
-const appShellFiles = ["/pwa-playground/index.html", "/pwa-playground/main.js", "/pwa-playground/style.css"];
+const appShellFiles = ["index.html", "assets/main.js", "assets/style.css"];
 // const gamesImages = [];
 // for (let i = 0; i < games.length; i++) {
 //   gamesImages.push(`data/img/${games[i].slug}.jpg`);
@@ -11,16 +11,16 @@ const appShellFiles = ["/pwa-playground/index.html", "/pwa-playground/main.js", 
 const contentToCache = appShellFiles;
 
 // Installing Service Worker
-self.addEventListener("install", (e) => {
-    console.log("[Service Worker] Install");
-    e.waitUntil(
-        (async () => {
-            const cache = await caches.open(cacheName);
-            console.log("[Service Worker] Caching all: app shell and content");
-            await cache.addAll(contentToCache);
-        })()
-    );
-});
+// self.addEventListener("install", (e) => {
+//     console.log("[Service Worker] Install");
+//     e.waitUntil(
+//         (async () => {
+//             const cache = await caches.open(cacheName);
+//             console.log("[Service Worker] Caching all: app shell and content");
+//             await cache.addAll(contentToCache);
+//         })()
+//     );
+// });
 
 // Fetching content using Service Worker
 self.addEventListener("fetch", (e) => {
@@ -35,5 +35,29 @@ self.addEventListener("fetch", (e) => {
             cache.put(e.request, response.clone());
             return response;
         })()
+    );
+});
+
+// contentToCache.push("/pwa-playground/style.css");
+
+self.addEventListener("install", (e) => {
+    e.waitUntil(
+        caches.open("pwaPlayground-v2").then((cache) => {
+            return cache.addAll(contentToCache);
+        })
+    );
+});
+
+self.addEventListener("activate", (e) => {
+    e.waitUntil(
+        caches.keys().then((keyList) => {
+            return Promise.all(
+                keyList.map((key) => {
+                    if (key !== cacheName) {
+                        return caches.delete(key);
+                    }
+                })
+            );
+        })
     );
 });
